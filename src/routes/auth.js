@@ -126,6 +126,30 @@ const mockUsers = [
     },
     isActive: true,
     createdAt: '2024-01-01T00:00:00Z'
+  },
+  {
+    id: '6',
+    email: 'manager@dmbrands.co.uk',
+    password: '$2a$10$rOzJqQMYw5YfFhj3fPkUJuFo8W8F8W8F8W8F8W8F8W8F8W8F8W8',
+    firstName: 'David',
+    lastName: 'Manager',
+    role: 'Manager',
+    companyId: 'dmbrands-uk',
+    permissions: {
+      analytics: true,
+      orders: true,
+      customers: true,
+      finance: true,
+      purchasing: true,
+      inventory: true,
+      salesManagement: true,
+      customerManagement: true,
+      catalogues: true,
+      imageManagement: true,
+      marketing: true
+    },
+    isActive: true,
+    createdAt: '2024-01-01T00:00:00Z'
   }
 ];
 

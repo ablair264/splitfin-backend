@@ -15,6 +15,9 @@ const PORT = process.env.PORT || 3001;
 // Initialize Supabase connection
 initSupabase();
 
+// Trust proxy for Railway deployment
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet());
 app.use(cors({
@@ -22,10 +25,12 @@ app.use(cors({
   credentials: true
 }));
 
-// Rate limiting
+// Rate limiting (configured for proxy environment)
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100 // limit each IP to 100 requests per windowMs
+  max: 100, // limit each IP to 100 requests per windowMs
+  standardHeaders: true,
+  legacyHeaders: false,
 });
 app.use(limiter);
 
