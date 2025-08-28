@@ -20,8 +20,14 @@ app.set('trust proxy', 1);
 
 // Security middleware
 app.use(helmet());
+
+// Parse frontend URLs from environment variable (supports multiple origins)
+const frontendUrls = process.env.FRONTEND_URL 
+  ? process.env.FRONTEND_URL.split(',').map(url => url.trim())
+  : ['http://localhost:3000'];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: frontendUrls,
   credentials: true
 }));
 
