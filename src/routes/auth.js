@@ -175,6 +175,17 @@ const mockCompanies = [
       secondary: '#685164',
       gradient: ['#4a3046', '#685164', '#8a7084']
     }
+  },
+  {
+    id: 'dmbrands-uk',
+    name: 'DM Brands UK',
+    domain: 'dmbrands.co.uk',
+    companyReference: 'dmbrands',
+    brandColors: {
+      primary: '#4a3046',
+      secondary: '#685164',
+      gradient: ['#4a3046', '#685164', '#8a7084']
+    }
   }
 ];
 
