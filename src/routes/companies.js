@@ -98,7 +98,12 @@ router.get('/by-domain/:domain', async (req, res) => {
         return res.status(404).json({ message: 'Company not found' });
       }
 
-      company = data;
+      // Transform Supabase response to match frontend expectations
+      company = {
+        ...data,
+        brandColors: data.brand_colors, // Convert snake_case to camelCase
+        companyReference: data.company_reference
+      };
     } else {
       // Use mock data for development
       company = mockCompanies.find(c => c.domain.toLowerCase() === domain.toLowerCase());
@@ -136,7 +141,12 @@ router.get('/:id', async (req, res) => {
         return res.status(404).json({ message: 'Company not found' });
       }
 
-      company = data;
+      // Transform Supabase response to match frontend expectations
+      company = {
+        ...data,
+        brandColors: data.brand_colors, // Convert snake_case to camelCase
+        companyReference: data.company_reference
+      };
     } else {
       company = mockCompanies.find(c => c.id === id);
       
